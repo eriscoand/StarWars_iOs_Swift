@@ -12,6 +12,9 @@
 		338ECA611E301DCE00F30CB5 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338ECA5F1E301DCE00F30CB5 /* Main.storyboard */; };
 		338ECA631E301DCE00F30CB5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 338ECA621E301DCE00F30CB5 /* Assets.xcassets */; };
 		338ECA661E301DCE00F30CB5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 338ECA641E301DCE00F30CB5 /* LaunchScreen.storyboard */; };
+		338ECA711E30230F00F30CB5 /* StarWarsCharacters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ECA701E30230F00F30CB5 /* StarWarsCharacters.swift */; };
+		338ECA731E3030CF00F30CB5 /* ForceSensitives.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ECA721E3030CF00F30CB5 /* ForceSensitives.swift */; };
+		338ECA751E30347E00F30CB5 /* StarWarsAffiliation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 338ECA741E30347E00F30CB5 /* StarWarsAffiliation.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		338ECA621E301DCE00F30CB5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		338ECA651E301DCE00F30CB5 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		338ECA671E301DCE00F30CB5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		338ECA701E30230F00F30CB5 /* StarWarsCharacters.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsCharacters.swift; sourceTree = "<group>"; };
+		338ECA721E3030CF00F30CB5 /* ForceSensitives.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ForceSensitives.swift; sourceTree = "<group>"; };
+		338ECA741E30347E00F30CB5 /* StarWarsAffiliation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StarWarsAffiliation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,16 @@
 		338ECA5A1E301DCE00F30CB5 /* StarWars */ = {
 			isa = PBXGroup;
 			children = (
+				338ECA6E1E301FB100F30CB5 /* Frameworks */,
+				338ECA6D1E301E2400F30CB5 /* App */,
+			);
+			path = StarWars;
+			sourceTree = "<group>";
+		};
+		338ECA6D1E301E2400F30CB5 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				338ECA6F1E301FF400F30CB5 /* Models */,
 				338ECA5B1E301DCE00F30CB5 /* AppDelegate.swift */,
 				338ECA5D1E301DCE00F30CB5 /* ViewController.swift */,
 				338ECA5F1E301DCE00F30CB5 /* Main.storyboard */,
@@ -61,7 +77,24 @@
 				338ECA641E301DCE00F30CB5 /* LaunchScreen.storyboard */,
 				338ECA671E301DCE00F30CB5 /* Info.plist */,
 			);
-			path = StarWars;
+			name = App;
+			sourceTree = "<group>";
+		};
+		338ECA6E1E301FB100F30CB5 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		338ECA6F1E301FF400F30CB5 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				338ECA701E30230F00F30CB5 /* StarWarsCharacters.swift */,
+				338ECA721E3030CF00F30CB5 /* ForceSensitives.swift */,
+				338ECA741E30347E00F30CB5 /* StarWarsAffiliation.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -96,6 +129,7 @@
 				TargetAttributes = {
 					338ECA571E301DCE00F30CB5 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = 42UB6JE5FK;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -136,8 +170,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				338ECA731E3030CF00F30CB5 /* ForceSensitives.swift in Sources */,
+				338ECA751E30347E00F30CB5 /* StarWarsAffiliation.swift in Sources */,
 				338ECA5E1E301DCE00F30CB5 /* ViewController.swift in Sources */,
 				338ECA5C1E301DCE00F30CB5 /* AppDelegate.swift in Sources */,
+				338ECA711E30230F00F30CB5 /* StarWarsCharacters.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -258,7 +295,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 42UB6JE5FK;
 				INFOPLIST_FILE = StarWars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = and.erisco.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -270,7 +309,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = 42UB6JE5FK;
 				INFOPLIST_FILE = StarWars/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = and.erisco.StarWars;
 				PRODUCT_NAME = "$(TARGET_NAME)";
