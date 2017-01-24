@@ -17,7 +17,7 @@ class ForceSensitives : StarWarsCharacter{
     //MARK: - Initialization
     init(firstName: String?,
          lastName: String?,
-         alias: String,
+         alias: String?,
          sound: Data,
          photo: UIImage,
          wikiUrl: URL,
@@ -66,4 +66,14 @@ class ForceSensitives : StarWarsCharacter{
         
     }
     
+    //MARK - Proxies
+    override func proxieForEquality() -> String {
+        return "\(super.proxieForEquality())\(midichlorians)"
+    }
+    
+    override func proxieForComparison() -> String {
+        return proxieForEquality()
+    }
+    
 }
+

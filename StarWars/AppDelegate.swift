@@ -12,9 +12,35 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        
+        do{
+            let regularCharactersJson = try loadFromLocalFile(fileName: "regularCharacters.json")
+            let forceSensitivesJson = try loadFromLocalFile(fileName: "forceSensitives.json")
+            
+            //json.append(contentsOf: try loadFromLocalFile(fileName: "forceSensitives.json"))
+            
+            let regularCharacters = try decodeCharacters(characters: regularCharactersJson)
+            let forceSensitives = try decodeCharacters(forceSensitives: forceSensitivesJson)
+            
+            let model = StarWarsUniverse(regularCharacters: regularCharacters, forceSensitives: forceSensitives)
+            
+            let uVC = StarWarsUniverseTableViewController(model: model)
+            let uNav = UINavigationController(rootViewController: uVC)
+            
+            window?.rootViewController = uNav
+            
+            window?.makeKeyAndVisible()
+            
+        }catch{
+            fatalError("ERROR FATAL")
+        }
+        
+        
         // Override point for customization after application launch.
         return true
     }

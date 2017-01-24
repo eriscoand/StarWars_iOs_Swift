@@ -14,7 +14,7 @@ class StarWarsCharacter {
     //MARK: - Stored Properties
     let firstName   :   String?
     let lastName    :   String?
-    let alias       :   String
+    let alias       :   String?
     let sound       :   Data
     let photo       :   UIImage
     let wikiUrl     :   URL
@@ -26,11 +26,13 @@ class StarWarsCharacter {
         get{
             
             if firstName != nil, lastName != nil {
-                return alias
+                return firstName! + " " + lastName!
             }else if firstName != nil{
+                return firstName
+            }else if lastName != nil{
                 return lastName
             }else{
-                return "\(firstName) \(lastName)"
+                return alias
             }
         
         }
@@ -39,7 +41,7 @@ class StarWarsCharacter {
     //MARK: - Initialization
     init(firstName: String?,
          lastName: String?,
-         alias:String,
+         alias:String?,
          sound: Data,
          photo: UIImage,
          wikiUrl: URL,
@@ -56,7 +58,7 @@ class StarWarsCharacter {
     }
     
     //MARK: - Conv initialization - Characters with no name!
-    convenience init(alias: String,
+    convenience init(alias: String?,
                      sound: Data,
                      photo: UIImage,
                      wikiUrl: URL,
@@ -72,5 +74,36 @@ class StarWarsCharacter {
         
     }
     
+    //MARK: - Proxies
+    func proxieForEquality() -> String{
+        return "\(firstName)\(lastName)\(alias)\(wikiUrl)\(affiliation)\(sound.hashValue)\(photo.hashValue)"
+    }
+    
+    func proxieForComparison() -> String{
+        return proxieForEquality()
+    }
+    
+}
+
+extension StarWarsCharacter : Equatable{
+    public static func ==(lhs: StarWarsCharacter, rhs: StarWarsCharacter) -> Bool{
+        return lhs.proxieForEquality() == rhs.proxieForEquality()
+    }
+}
+
+extension StarWarsCharacter : Comparable{
+    
+    public static func <(lhs: StarWarsCharacter, rhs: StarWarsCharacter) -> Bool{
+        return (lhs.proxieForComparison() < rhs.proxieForComparison())
+    }
+    
+}
+
+extension StarWarsCharacter : CustomStringConvertible{
+    public var description: String {
+        get{
+            return "[\(type(of:self))]: \(name)"
+        }
+    }
 }
 
