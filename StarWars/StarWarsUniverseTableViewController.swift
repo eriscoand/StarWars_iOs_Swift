@@ -40,6 +40,8 @@ class StarWarsUniverseTableViewController: UITableViewController {
         let cellId = "StarWarsCell"
         var cell = tableView.dequeueReusableCell(withIdentifier: cellId)
         
+        title = "Star Wars Universe"
+        
         let affiliation  = getAffiliation(forSection: indexPath.section)
         
         do{
